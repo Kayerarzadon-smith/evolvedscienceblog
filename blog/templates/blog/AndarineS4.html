@@ -1,0 +1,56 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<!-- B L O G  P O S T S  S E C T I O N-->
+<div class="container" style="margin-top: 25px;">
+  <div class="row">
+    <div class="col">
+      <h1>Andarine (S-4)</h1>
+      <div class="linebreak"></div>
+    </div>
+  </div>
+
+  <!-- B L O G  P O S T S -->
+  <div class="row">
+    <div class="col-8">
+      {% for a in andarine %}
+      <h3 class="card-title" style="margin-top: 20px"><a href="{% url 'a-detail' a.id %}">{{ a.title }}</a></h3>
+      <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+        <img src="{{ a.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{ a.content | safe | truncatechars:350 |linebreaks }}</p>
+          <a href="{% url 'post-detail' post.id %}"><button type="button" class="btn btn-danger btn-lg" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Continue Reading...</button></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- S U B S C R I B E  S I D E  B O X -->
+    <div class="col-4" >
+      <h5 class="card-title" style="margin-top: 30px;">Subscribe To The Page</h5>
+      <div class="card text-white bg-secondary" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card-body">
+          <h5 class="card-title text-white">Join 1.5M+ subscribers and receive exclusive tools, tips, and resources directly from Tim:</h5>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Type your email address" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Subscribe</button>
+          </form>
+        </div>
+        <div class="card text-white bg-secondary mb-3">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+<!--     Recommended SARMS Box -->
+      <h5 class="card-title" style="margin-top: 50px;">Recommended Sarms</h5>
+      <div class=" bg-light">
+        <!-- <div class="card-body"> -->
+          <a href="https://rats.army/ref/179/"><img src="/media/site_photos/RatsArmylogo.jpeg" style=" height: 100px;"></a>
+          <a href="https://swoleaflabs.com/?sca_ref=292998.IJc6w15obZ"><img src="/media/site_photos/Swoleaflabslogo.png" style=" height: 100px;"></a>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>     
+{% endblock content %}

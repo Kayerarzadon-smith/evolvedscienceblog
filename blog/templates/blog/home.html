@@ -1,0 +1,83 @@
+
+<!-- M O V I E  H E A D E R  -->
+<div class="container-fluid" style="max-height: 85%; object-fit: contain; overflow: hidden; padding: 0;">
+  <div class="container">
+    <img src="/media/site_photos/evolved_white.gif" style="position: absolute; height: 100px; z-index:2; margin-top: 50px;">
+  </div>
+  <div class="embed-responsive embed-responsive-16by9" style="overflow: hidden;  " >
+    <video class="embed-responsive-item" loop="true" autoplay="true" controls muted="true" style="object-fit: contain">
+      <source src="media/site_videos/evolved_promo_video.mov" type="video/mp4">
+      <source src="media/site_videos/evolved_promo_video.mov" type="video/ogg">
+    </video>
+   </div>
+  </div>
+</div>
+
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<!-- B L O G  P O S T S  S E C T I O N-->
+<div class="container" style="margin-top: 25px;">
+  <div class="row">
+    <div class="col">
+      <h1>Latest</h1>
+      <div class="linebreak"></div>
+    </div>
+  </div>
+
+  <!-- B L O G  P O S T S -->
+  <div class="row">
+    <div class="col-8">
+      {% for post in posts %}
+      <h3 class="card-title" style="margin-top: 20px"><a href="{% url 'post-detail' post.id %}">{{ post.name }}</a></h3>
+      <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+        <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{ post.content | safe | truncatechars:350 |linebreaks }}</p>
+          <a href="{% url 'post-detail' post.id %}"><button type="button" class="btn btn-danger btn-lg" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">Continue Reading...</button></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- S U B S C R I B E  S I D E  B O X -->
+    <div class="col-4" >
+      <h5 class="card-title" style="margin-top: 30px;">Subscribe To The Page</h5>
+      <div class="card text-white bg-secondary" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+        <div class="card-body">
+          <h5 class="card-title text-white">Join the Evolved Mailing list and receive exclusive tools, tips, and resources directly from Evolved Research:</h5>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Type your email address" aria-label="Search">
+            <button class="btn btn-outline-alert my-2 my-sm-0" type="submit" src="https://app.getresponse.com/view_webform_v2.js?u=wo17M&webforms_id=h28QD">Subscribe</button>
+          </form>
+        </div>
+        <div class="card text-white bg-secondary mb-3">
+
+        </div>
+      </div>
+
+     <!--  T O P  P O S T S  S I D E  B O X -->
+      <h5 class="card-title" style="margin-top: 50px;">Top Posts</h5>
+      <div class="bg-light">
+        <!-- <div class="card-body"> -->
+        {% for post in posts %}
+          {% if forloop.counter < 6 %}
+            <h6 class="card-title" href="post.image.url">{{ post.title }}</h6>
+            <p class="card-text">{{ post.content | safe | truncatechars:100 |linebreaks }}</p>
+            <div class="linebreak"></div>
+          {% endif %}
+        {% endfor %}
+        <!-- </div> -->
+      </div>
+
+      <h5 class="card-title" style="margin-top: 50px;">Recommended Sarms</h5>
+      <div class=" bg-light">
+        <!-- <div class="card-body"> -->
+          <a href="https://rats.army/ref/179/"><img src="/media/site_photos/RatsArmylogo.jpeg" style=" height: 100px;"></a>
+          <a href="https://swoleaflabs.com/?sca_ref=292998.IJc6w15obZ"><img src="/media/site_photos/Swoleaflabslogo.png" style=" height: 100px;"></a>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>     
+{% endblock content %}

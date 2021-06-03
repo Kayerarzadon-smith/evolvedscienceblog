@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/blog/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+    {% if title %}
+    <title>Django Blog - {{ title }}</title>
+    {% else %}
+    <title>Django Blog</title>
+    {% endif %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <a class="nav-link" style="color: white" href="{% url 'blog-home' %}">Home</a>
+      <a class="nav-link" style="color: white" href="{% url 'blog-about' %}">About</a>
+      <div class="dropdown">
+      <a class="nav-link dropdown-toggle" style="color: white" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">SARMS<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="{% url 'ostarine' %}">Ostarine (MK-2866)</a></li>
+          <li><a class="nav-link" href="{% url 'lgd_4033' %}">LGD (4033)</a></li>
+          <li><a class="nav-link" href="{% url 'AndarineS4'%}">Andarine (S-4)</a></li>
+          <li><a class="nav-link" href="{% url 'S-23' %}">S-23</a></li>
+          <li><a class="nav-link" href="{% url 'YK11' %}">YK-11</a></li>
+          <li><a class="nav-link" href="{% url 'LGD3033' %}">LGD (3033)</a></li>
+          <li><a class="nav-link" href="{% url 'ACP105' %}">ACP-105</a></li>
+          <li><a class="nav-link" href="{% url 'AC262' %}">AC-262</a></li>
+        </ul>
+      </div>
+      <a class="nav-link" style="color: white" href="{% url 'blog-home' %}">Pro-Hormone</a>
+      <a class="nav-link" style="color: white" href="{% url 'blog-home' %}">PCT</a>
+      <a class="nav-link" style="color: white" href="{% url 'blog-affiliate-disclaimer' %}">Shop</a>
+</nav>
+
+
+
+
+    {% block content %}
+    {% endblock %}
+<!--   </div> -->
+<div class="d-grid gap-3" style="margin-top: 75px; margin-bottom: 75px">
+</div>
+  <!-- B O T T O M    O F    P A G E  -->
+  <div class="footer">
+    <div class="subscribe_container">
+      <p>Join our community</p>
+      <div class="subscribe_form">
+        <input class="subscribe_input" type="text" placeholder="Email address" name="mail" required>
+        <input class="btn" type="submit" value="Subscribe">
+      </div>
+      <div class="social_footer">
+        <div class="social_row">
+          <div class="social_column">
+            <img href="https://instagram.com/evolvedsciencenews?igshid=1fakqbryx6v3s" src="/media/site_photos/Instagram_Vector.png" class="social_footer_icon">
+            <img src="/media/site_photos/facebook_icon.png" class="social_footer_icon" href="https://www.facebook.com/evolvedsciencenews/">
+          </div>
+        </div>
+        <footer class="footer_menu">
+        <ul>
+          <li><a href="{% url 'blog-home' %}">Home</a></li>
+          <li><a href="{% url 'blog-about' %}">About</a>
+          <li><a href="{% url 'blog-medical-disclaimer' %}">Medical Disclaimer</a></li>
+          <li><a href="{% url 'blog-affiliate-disclaimer' %}">Affiliate Disclaimer</a></li>
+          <!-- <li><a href="{% url 'blog-affiliate-disclaimer' %}">Shop</a></li> -->
+        </ul>
+        </footer>
+      </div>
+    </div>
+    <div class="banner">
+      <img class="banner_logo" src="/media/site_photos/evolved_white.gif">
+      <p class='banner_text'>@ 2021 Evolved Science & Research</p>
+    </div>
+</div>
+
+  </div>
+
+</body>
+</html>
