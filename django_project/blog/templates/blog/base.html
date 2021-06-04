@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/blog/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% if title %}
+    <title>Django Blog - {{ title }}</title>
+    {% else %}
+    <title>Django Blog</title>
+    {% endif %}
+  </head>
+  <body>
+
+<!--   <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <img class="nav_logo" src="/media/site_photos/evolved_white.gif">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Evolved Science & Research</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+            <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+            <a class="nav-item nav-link" href="{% url 'blog-medical-disclaimer' %}">Medical Disclaimer</a>
+            <a class="nav-item nav-link" href="{% url 'blog-affiliate-disclaimer' %}">Affiliate Disclaimer</a>
+            <a class="nav-item nav-link" href="{% url 'blog-affiliate-disclaimer' %}">Shop</a>
+          </div> -->
+          <!-- Navbar Right Side -->
+<!--           <div class="navbar-nav">
+            <img href="https://instagram.com/evolvedsciencenews?igshid=1fakqbryx6v3s" src="/media/site_photos/Instagram_Vector.png" class="nav-item nav-link" style="height: 40px" >
+            <img src="/media/site_photos/facebook_icon.png" class="nav-item nav-link" style="height: 40px" href="https://www.facebook.com/evolvedsciencenews/">
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header> -->
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
+  <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+  <a class="nav-item nav-link" href="{% url 'blog-affiliate-disclaimer' %}">Affiliate Disclaimer</a>
+  <a class="nav-item nav-link" href="{% url 'blog-medical-disclaimer' %}">Medical Disclaimer</a>
+  <a class="nav-item nav-link" href="{% url 'blog-medical-disclaimer' %}">Shop Now</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰</button>  
+  <div class="bar">
+    <img class="nav_logo" src="/media/site_photos/evolved_white.gif">
+    <h2 class="navtext">Read + Research = Evolved</h2>
+    <div class="subscribe_form_top_nav">
+        <input class="subscribe_input_top_nav" type="text" placeholder="Email address" name="mail" required>
+        <input class="btn_top_nav" type="submit" value="Subscribe">
+      </div>
+  </div>
+</div>
+
+<script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+  }
+</script>
+
+  <main role="main" class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- B O T T O M    O F    P A G E  -->
+  <div class="footer">
+    <div class="subscribe_container">
+      <p>Join our community</p>
+      <div class="subscribe_form">
+        <input class="subscribe_input" type="text" placeholder="Email address" name="mail" required>
+        <input class="btn" type="submit" value="Subscribe">
+      </div>
+      <div class="social_footer">
+        <div class="social_row">
+          <div class="social_column">
+            <img href="https://instagram.com/evolvedsciencenews?igshid=1fakqbryx6v3s" src="/media/site_photos/Instagram_Vector.png" class="social_footer_icon">
+            <img src="/media/site_photos/facebook_icon.png" class="social_footer_icon" href="https://www.facebook.com/evolvedsciencenews/">
+          </div>
+        </div>
+        <footer class="footer_menu">
+        <ul>
+          <li><a href="{% url 'blog-home' %}">Home</a></li>
+          <li><a href="{% url 'blog-about' %}">About</a>
+          <li><a href="{% url 'blog-medical-disclaimer' %}">Medical Disclaimer</a></li>
+          <li><a href="{% url 'blog-affiliate-disclaimer' %}">Affiliate Disclaimer</a></li>
+          <li><a href="{% url 'blog-affiliate-disclaimer' %}">Shop</a></li>
+        </ul>
+        </footer>
+      </div>
+    </div>
+    <div class="banner">
+      <img class="banner_logo" src="/media/site_photos/evolved_white.gif">
+      <p class='banner_text'>@ 2021 Evolved Fitness</p>
+    </div>
+  </div>
+</body>
+</html>

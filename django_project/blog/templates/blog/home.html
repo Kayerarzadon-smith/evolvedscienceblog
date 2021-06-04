@@ -1,0 +1,49 @@
+
+<div class="video_component">
+  <video class="vid" loop="true" autoplay="true" controls muted="true">
+    <source src="media/site_videos/evolved_promo_video.mov" type="video/mp4">
+    <source src="media/site_videos/evolved_promo_video.mov" type="video/ogg">
+  </video>
+  <div class="shop_box">
+    <input class="btn2" type="submit" value="SHOP NOW" >
+  </div>
+</div>
+{% extends 'blog/base.html' %}
+{% block content %}
+
+ <!--  <div class="featured_container">
+    <h1>Featured</h1>
+  </div> -->
+  <div class="content">
+          <div class="header_box">
+      <h1 class="content_header"><b>Latest</b></h1>
+      <div class="linebreak"></div>
+      </div>
+      <div class="content_main_box">
+    <div class="content_wrapper">
+    {% for post in posts %}
+      <div class="content_container">
+        <img class="content_img" src="{{ post.image.url }}" >
+        <h5>{{ post.title }}</h5>
+        <p>{{ post.content | safe | truncatechars:150 |linebreaks }}</p>
+        <a href="{% url 'post-detail' post.id %}">read more</a> 
+      </div>
+    {% endfor %}
+    </div>
+      <div class="content_sidebar">
+        {% for post in posts %}
+        <p>{{ post.title }}</p>
+            {% endfor %}
+      </div>
+      </div>
+  </div>
+<!-- </div>   -->   
+{% endblock content %}
+
+
+
+  
+
+
+
+
