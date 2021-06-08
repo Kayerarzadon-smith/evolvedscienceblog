@@ -3,28 +3,11 @@ from django.shortcuts import render
 from django.views import generic
 from .models import Post
 
-
-
-
-
-# def home(request):
-#     context = {
-#         'posts' : Post.objects.all()
-#     }
-#     return render(request, 'blog/home.html', context)
-
-
 class PostListView (ListView):
     model = Post
     template_name = 'blog/home.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
-
-
-# class OstarineListView (ListView):
-#     # model = Sarm
-#     context_object_name = 'posts'
-#     template_name = 'blog/ostarine.html'
 
 
 class PostDetailView (DetailView):
@@ -72,10 +55,4 @@ def AC262 (request):
     ac262 = Post.objects.filter(content__contains="ac262")
     return render(request, 'blog/AC262.html', {"ac262" : ac262}) 
 
-# def Post(request, slug, pk):
-#     blog = Post.get_post(id=pk)
-#     context = {
-#         "post": post,
-#     }
-#     return render(request, 'post_details.html', context)
     
