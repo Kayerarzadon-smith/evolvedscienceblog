@@ -7,7 +7,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', PostListView.as_view(), name='blog-home'),
+    path('/', PostListView.as_view(), name='blog-home'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('about/', views.about, name='blog-about'),
     path('medical_disclaimer/', views.medical_disclaimer, name='blog-medical-disclaimer'),
