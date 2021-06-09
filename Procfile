@@ -1,1 +1,1 @@
-web: gunicorn evolved_science_blog.wsgi
+web: gunicorn django_project.wsgi
