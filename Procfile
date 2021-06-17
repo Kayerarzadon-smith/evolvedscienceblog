@@ -1,4 +1,3 @@
-web: gunicorn django_project.wsgi:application --log-file - --log-level debug
+web: gunicorn django_project.wsgi
 python manage.py collectstatic --noinput
 manage.py migrate
-gettingstarted
