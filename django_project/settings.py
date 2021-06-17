@@ -26,9 +26,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rj0gz90g#5visg90!(6gb_18$261!egu__68bjfu%qhi^tbwzg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['evolvedresearch.herokuapp.com', '127.0.0.1']
 
 TINYMCE_DEFAULT_CONFIG = {
     'height': 360,
