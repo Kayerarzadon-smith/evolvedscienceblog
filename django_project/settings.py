@@ -70,7 +70,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ckeditor_uploader',
     'ckeditor',
     'django_continue_reading',
     'django_instagram',
